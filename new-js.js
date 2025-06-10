@@ -1,13 +1,13 @@
 const taskContainer = document.querySelector(".task__container");
-const globalStore = [];//array of objects
+let globalStore = [];//array of objects
 console.log(taskContainer);
 
 const generateNewCard = (taskData) => `  
-<div class="col-sm-12 col-md-6  col-lg-4 id=${taskData.id}">
+<div class="col-sm-12 col-md-6  col-lg-4 ">
         <div class="card">
           <div class="card-header d-flex  justify-content-end gap-2">
             <button type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button></button>
-            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+            <button type="button" class="btn btn-danger" id=${taskData.id} onclick="deleteCard.apply(this,arguments)"><i class="fas fa-trash-alt" id=${taskData.id} onclick="deleteCard.apply(this,arguments)"  ></i></button>
           </div>
           <div class="card-body">
             <img src= ${taskData.imageUrl} class="card-img-top rounded " alt="...">
@@ -39,6 +39,24 @@ const loadIntialCardData = () => {
   });
 };
 
+const deleteCard = (event) => {
+  event =  window.event;
+  const targetID = event.target.id;
+  const tagname =event.target.tagName;
+
+  globalStore = globalStore.filter((cardObject) => cardObject.id !== targetID);
+  localStorage.setItem("tasky",JSON.stringify({cards: globalstore}));
+
+  if (tagname === "button") {
+    return taskContainer.removeChild(event.target.parentNode.parentNode.parentNode);
+
+  }
+  else {
+    return taskContainer.removeChild(event.target.parentNode.parentNode.parentNode.parentNode);
+  }
+
+  };
+
 
 const saveChanges = () => {
   const taskData = {
@@ -58,6 +76,11 @@ const saveChanges = () => {
 
 
 };
+
+//deletecard
+
+
+
 
 //${xyz} dynamic value, can change in the near future
 
