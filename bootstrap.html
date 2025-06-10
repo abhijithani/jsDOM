@@ -17,7 +17,7 @@
   }
 </style>
 
-<body>
+<body onload="loadIntialCardData ()">
 
   <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -49,7 +49,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="saveChanges()" data-bs-dismiss="modal">Save changes</button>
+            <button type="button" class="btn btn-primary" onclick="saveChanges()" data-bs-dismiss="modal" >Save changes</button>
           </div>
         </div>
       </div>
@@ -108,21 +108,7 @@
 
 
     <div class="row task__container">
-      <div class="col-sm-12 col-md-6  col-lg-4">
-        <div class="card">
-          <div class="card-header d-flex  justify-content-end gap-2">
-            <button type="button" class="btn btn-success"><i class="fas fa-pencil-alt"></i></button></button>
-            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-          </div>
-          <div class="card-body">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YJ6RvSdtME7DyRq304LPhQlzft9ZZrCTbQ&s"
-              class="card-img-top rounded " alt="...">
-            <h5 class="card-title mt-3 fw-bold text-primary">Title</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+      
 
     </div>
 
