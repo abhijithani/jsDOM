@@ -39,6 +39,8 @@ const loadIntialCardData = () => {
   });
 };
 
+//deletecard
+
 const deleteCard = (event) => {
   event =  window.event;
   const targetID = event.target.id;
@@ -77,7 +79,6 @@ const saveChanges = () => {
 
 };
 
-//deletecard
 
 
 
